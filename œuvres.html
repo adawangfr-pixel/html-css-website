@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JUN YUN — Mes œuvres</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="oeuvres">
+  <header class="header">
+    <a class="brand" href="index.html">
+      <span class="brandName">JUN YUN</span>
+      <span class="brandDot">●</span>
+      <span class="brandName">均匀</span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">MON AVIS</a>
+      <a class="active" href="œuvres.html">MES ŒUVRES</a>
+      <a class="pill" href="contact.html">CONTACT</a>
+    </nav>
+
+    <button class="menuBtn" id="menuBtn" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawerPanel">
+      <div class="drawerTop">
+        <span class="drawerTitle">NAVIGATION</span>
+        <button class="drawerClose" id="drawerClose" aria-label="Close menu">✕</button>
+      </div>
+      <a href="index.html">MON AVIS</a>
+      <a href="œuvres.html">MES ŒUVRES</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="section oeuvresIntro">
+      <div class="container">
+        <h1 class="h1 h1Small"><span class="spread">MES ŒUVRES</span></h1>
+
+        <p class="introText">
+          Inspirées par <strong>Ludwig Wittgenstein</strong>, ces six œuvres traitent la peinture comme un langage : le signe transmet du sens, mais en efface aussi.
+          Deux axes en découlent : <strong>L’INDICIBLE</strong> (3 pièces) — l’image n’énonce pas, elle indique la limite ;
+          <strong>LANGAGE PRIVÉ</strong> (3 pièces) — sans critères partagés, le signe se dérègle et le regard cherche une règle commune.
+        </p>
+      </div>
+    </section>
+
+    <section class="section oeuvresGrid">
+      <div class="container">
+        <div class="pillGrid">
+          <article class="card expoBlock">
+            <header class="expoHead">
+              <div class="expoBadge">I</div>
+              <div>
+                <div class="expoKicker">L’INDICIBLE</div>
+                <p class="muted expoDesc">
+                  Ces œuvres approchent la limite : elles font sentir ce que le langage ne peut pas dire clairement,
+                  et que l’image ne peut qu’indiquer.
+                </p>
+              </div>
+            </header>
+
+            <div class="expoGallery">
+              <figure class="expoArt">
+                <img src="https://raw.githubusercontent.com/adawangfr-pixel/html-css-website/main/img/01.jpg" alt="Œuvre 01">
+                <figcaption class="tiny">Fleur No.1 · 2023 ( Encre sur Soie 200×200cm )</figcaption>
+              </figure>
+              <figure class="expoArt">
+                <img src="https://raw.githubusercontent.com/adawangfr-pixel/html-css-website/main/img/02.jpg" alt="Œuvre 02">
+                <figcaption class="tiny">Sans titre · 2022 ( lavis d’encre sur panneau de bois 200×250cm )</figcaption>
+              </figure>
+              <figure class="expoArt">
+                <img src="https://raw.githubusercontent.com/adawangfr-pixel/html-css-website/main/img/03.jpg" alt="Œuvre 03">
+                <figcaption class="tiny">Sans titre No.13 · 2020 ( Encre sur Soie 130×100cm )</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="card expoBlock">
+            <header class="expoHead">
+              <div class="expoBadge">II</div>
+              <div>
+                <div class="expoKicker">LANGAGE PRIVÉ</div>
+                <p class="muted expoDesc">
+                  Ces œuvres interrogent l’idée d’un sens purement intérieur : sans critères partagés,
+                  le signe perd son ancrage — et le regard cherche une règle.
+                </p>
+              </div>
+            </header>
+
+            <div class="expoGallery">
+              <figure class="expoArt">
+                <img src="https://raw.githubusercontent.com/adawangfr-pixel/html-css-website/main/img/04.jpg" alt="Œuvre 04">
+                <figcaption class="tiny">Sans titre: Paul Cézanne, Nature morte au compotier · 2024 ( Pastel à l’huile, acrylique sur toile 150×200cm )</figcaption>
+              </figure>
+              <figure class="expoArt">
+                <img src="https://raw.githubusercontent.com/adawangfr-pixel/html-css-website/main/img/05.jpg" alt="Œuvre 05">
+                <figcaption class="tiny">Sans titre: Paul Cézanne, Nature morte aux fruits et aux plats · 2024 ( Pastel à l’huile, acrylique sur toile 160×200cm )</figcaption>
+              </figure>
+              <figure class="expoArt">
+                <img src="https://raw.githubusercontent.com/adawangfr-pixel/html-css-website/main/img/06.jpg" alt="Œuvre 06">
+                <figcaption class="tiny">Sans titre: Édouard Manet, Le Déjeuner sur l’herbe · 2024 ( Pastel à l’huile, acrylique sur toile 230×300cm )</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footerGrid">
+      <div>
+        <div class="footerTitle">Pages</div>
+        <a href="index.html"><span class="tiny">Mon avis</span></a>
+        <a href="œuvres.html"><span class="tiny">Mes œuvres</span></a>
+        <a href="contact.html"><span class="tiny">Contact</span></a>
+      </div>
+
+      <div>
+        <div class="footerTitle">Version</div>
+        <span class="tiny">Ada Wang · Toulouse · 2026</span>
+      </div>
+
+      <div>
+        <div class="footerTitle">Crédits</div>
+        <p class="tiny muted">Design du site : © Ada Wang.</p>
+        <p class="tiny muted">Images : © BU Yunjun.</p>
+        <p class="tiny muted">Merci de ne pas télécharger ni réutiliser les images sans accord préalable (contact requis).</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

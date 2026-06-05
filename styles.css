@@ -1,0 +1,345 @@
+:root{
+  --bg:#0b0c0e;
+  --fg:#f4f2ee;
+  --muted:#bdb8ae;
+  --line:rgba(244,242,238,.14);
+  --bg-img:url("https://raw.githubusercontent.com/adawangfr-pixel/html-css-website/main/img/07.jpg");
+  --panel-02:rgba(255,255,255,.02);
+  --panel-03:rgba(255,255,255,.03);
+  --panel-035:rgba(255,255,255,.035);
+  --panel-04:rgba(255,255,255,.04);
+  --panel-05:rgba(255,255,255,.05);
+  --panel-06:rgba(255,255,255,.06);
+  --panel-08:rgba(255,255,255,.08);
+  --r:18px;
+  --pad:clamp(16px,3vw,26px);
+  --w:1100px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans",sans-serif;
+  background:
+    radial-gradient(900px 520px at 20% 10%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(800px 480px at 80% 20%, rgba(255,255,255,.04), transparent 60%),
+    linear-gradient(180deg,var(--bg),#0f1116);
+  color:var(--fg);
+  overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.92}
+
+.container{width:min(var(--w),100% - var(--pad)*2);margin:0 auto}
+.muted,.tiny{color:var(--muted)}
+.tiny{font-size:12px}
+
+/* ===============================
+   Header / Navigation
+   =============================== */
+.header{
+  position:sticky;top:0;z-index:20;
+  padding:14px var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  background:rgba(11,12,14,.55);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+
+.brand{display:flex;align-items:center;gap:10px;min-width:140px}
+.brandDot{font-size:18px;opacity:.9}
+.brandName{font-size:12px;text-transform:uppercase;letter-spacing:.32em}
+
+.nav{
+  display:flex;align-items:center;gap:18px;
+  font-size:12px;text-transform:uppercase;letter-spacing:.22em;
+}
+.nav a{opacity:.85}
+.nav a.active{opacity:1}
+
+.pill{
+  padding:10px 12px;border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--panel-05);
+  opacity:1;
+}
+
+/* ===============================
+   Drawer (mobile menu)
+   =============================== */
+.menuBtn{
+  display:none;width:44px;height:44px;
+  border-radius:12px;border:1px solid var(--line);
+  background:var(--panel-04);cursor:pointer;
+}
+.menuBtn span{display:block;width:18px;height:1px;background:rgba(244,242,238,.85);margin:0 auto}
+.menuBtn span+span{margin-top:7px}
+
+.drawer{
+  position:fixed;inset:0;z-index:50;
+  background:rgba(0,0,0,.55);
+  opacity:0;pointer-events:none;
+  transition:opacity 220ms var(--ease);
+}
+.drawerPanel{
+  position:absolute;right:0;top:0;bottom:0;
+  width:min(360px,92vw);padding:18px;
+  background:rgba(15,17,22,.92);
+  border-left:1px solid var(--line);
+  transform:translateX(18px);
+  transition:transform 220ms var(--ease);
+}
+.drawer.open{opacity:1;pointer-events:auto}
+.drawer.open .drawerPanel{transform:translateX(0)}
+.drawerTop{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.drawerTitle{font-size:12px;text-transform:uppercase;letter-spacing:.28em;opacity:.85}
+.drawerClose{
+  width:40px;height:40px;border-radius:12px;
+  border:1px solid var(--line);
+  background:var(--panel-05);color:var(--fg);
+  cursor:pointer;
+}
+.drawer a{
+  display:block;padding:14px 10px;border-radius:14px;
+  border:1px solid transparent;
+  text-transform:uppercase;letter-spacing:.22em;font-size:13px;
+  opacity:.9;
+}
+.drawer a:hover{border-color:var(--line);background:var(--panel-04)}
+
+/* ===============================
+   Sections / Typography
+   =============================== */
+.section{padding:72px 0}
+.section:not(:last-of-type){border-bottom:1px solid var(--line)}
+body.contact .section,
+body.oeuvres .section{border-bottom:none}
+
+.h1{margin:0;font-size:clamp(44px,7vw,92px);line-height:.98;font-weight:460}
+.h1Small{font-size:clamp(34px,4.6vw,56px)}
+.spread{letter-spacing:.28em}
+.h2{margin:0;font-size:clamp(24px,3.2vw,40px);font-weight:480}
+.lead{margin:18px 0 0;font-size:clamp(16px,1.5vw,18px);line-height:1.65;color:var(--muted);max-width:60ch}
+.introText{margin-top:24px;max-width:78ch;line-height:1.7;color:var(--muted)}
+
+/* ===============================
+   UI components
+   =============================== */
+.card{border:1px solid var(--line);border-radius:var(--r);background:var(--panel-03);padding:16px}
+
+.btnRow{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:44px;padding:0 16px;border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--panel-06);
+  color:var(--fg);
+  text-transform:uppercase;letter-spacing:.22em;font-size:12px;
+  cursor:pointer;
+  transition:transform 160ms var(--ease), background 160ms var(--ease);
+}
+.btn:hover{transform:translateY(-1px);background:var(--panel-08)}
+.btnGhost{background:transparent}
+
+/* List — refined bullets (reuses existing .list) */
+.list{margin:12px 0 0;padding-left:0;list-style:none;color:var(--muted);line-height:1.7}
+.list li{position:relative;padding-left:18px;margin:6px 0}
+.list li::before{content:"○";position:absolute;left:0;top:.12em;font-size:12px;opacity:.55}
+
+.bigName{font-size:28px;margin-top:8px}
+.bio{margin-top:6px;line-height:1.6}
+.miniLink{display:inline-block;margin-top:14px;font-size:12px;color:var(--muted);letter-spacing:.08em;opacity:.9}
+.miniLink:hover{opacity:1;text-decoration:underline}
+
+/* ===============================
+   Home (hero)
+   =============================== */
+.hero{min-height:calc(100vh - 70px);display:flex;align-items:center;padding:56px 0 36px}
+.heroGrid{display:grid;grid-template-columns:1.3fr .7fr;gap:26px;align-items:end}
+
+/* Home — bio card typography (index only) */
+body.home .card .tiny{font-size:11px;text-transform:uppercase;letter-spacing:.22em}
+body.home .card .bigName{margin-top:10px;font-size:clamp(30px,3.2vw,42px);line-height:1.06;letter-spacing:.02em}
+body.home .card .bio{margin-top:10px;line-height:1.75;max-width:44ch}
+body.home .card .miniLink{margin-top:16px;font-size:11px;text-transform:uppercase;letter-spacing:.18em;opacity:1}
+
+body.home .hero{position:relative;overflow:hidden}
+
+/* Shared blurred background layer (home hero + agent card) */
+body.home .hero::before,
+.agent::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  background:var(--bg-img) center/cover no-repeat;
+  filter:blur(6px) saturate(1.05) contrast(1.05);
+  animation:bgFlow 18s ease-in-out infinite alternate;
+}
+body.home .hero::before{inset:-8%;opacity:.45;transform:scale(1.08)}
+.agent::before{inset:-20%;opacity:.35;transform:scale(1.10)}
+
+body.home .hero::before{
+  content:"";position:absolute;inset:-8%;z-index:0;
+  background:var(--bg-img) center/cover no-repeat;
+  filter:blur(6px) saturate(1.05) contrast(1.05);
+  opacity:.45;transform:scale(1.08);
+  animation:bgFlow 18s ease-in-out infinite alternate;
+}
+body.home .hero::after{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:radial-gradient(800px 500px at 35% 35%, rgba(0,0,0,.25), rgba(0,0,0,.75));
+}
+body.home .hero > .container{position:relative;z-index:1}
+
+@keyframes bgFlow{
+  0%{transform:translate3d(-1.5%,-1.2%,0) scale(1.10)}
+  50%{transform:translate3d( 1.2%,-0.8%,0) scale(1.12)}
+  100%{transform:translate3d( 2.0%, 1.0%,0) scale(1.10)}
+}
+
+/* ===============================
+   Footer
+   =============================== */
+.footer{
+  margin-top:56px;
+  padding:56px 0 56px;
+  width:100%;
+  background:var(--bg);
+  position:relative;
+}
+.footer::before{
+  content:"";
+  position:absolute;
+  left:0; top:0;
+  width:100%;
+  height:1px;
+  background:var(--line);
+}
+.footerGrid{display:grid;grid-template-columns:1fr 1fr minmax(220px,20ch);gap:18px}
+.footerTitle{text-transform:uppercase;letter-spacing:.28em;font-size:12px;opacity:.85;margin-bottom:10px}
+.footer a{display:block;padding:8px 0;color:var(--muted)}
+.footer a:hover{color:var(--fg)}
+.footer p{margin:6px 0 0}
+
+/* ===============================
+   Œuvres page
+   =============================== */
+body.oeuvres .oeuvresIntro{padding-top:48px;padding-bottom:38px}
+body.oeuvres .oeuvresGrid{padding-top:0;padding-bottom:72px}
+body.oeuvres .pillGrid{display:grid;grid-template-columns:1fr;gap:48px;align-items:start}
+
+body.oeuvres .expoBlock{padding:18px}
+body.oeuvres .expoHead{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:start;margin-bottom:14px}
+body.oeuvres .expoBadge{
+  width:44px;height:44px;border-radius:999px;border:1px solid var(--line);
+  display:grid;place-items:center;letter-spacing:.22em;font-size:12px;opacity:.9;
+}
+body.oeuvres .expoKicker{text-transform:uppercase;letter-spacing:.22em;font-size:12px;opacity:.9}
+body.oeuvres .expoDesc{margin:10px 0 0;line-height:1.7;max-width:60ch}
+body.oeuvres .expoGallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+body.oeuvres .expoArt{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--panel-02)}
+body.oeuvres .expoArt img{
+  width:100%;height:190px;object-fit:cover;display:block;
+  transform:scale(1);
+  transition:transform 240ms var(--ease), filter 240ms var(--ease);
+}
+body.oeuvres .expoArt:hover img{transform:scale(1.06) rotate(-0.6deg);filter:saturate(1.05) contrast(1.02)}
+body.oeuvres .expoArt figcaption{padding:10px 10px 12px}
+
+/* ===============================
+   Contact page
+   =============================== */
+body.contact .contactIntro{padding-top:48px;padding-bottom:38px}
+body.contact .contactGridSection{padding-top:0;padding-bottom:72px}
+.contactGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start}
+
+.form{display:grid;gap:12px;margin-top:10px}
+label span{
+  display:block;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  opacity:.85;
+  margin-bottom:8px;
+}
+input, textarea{
+  width:100%;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:var(--panel-04);
+  color:var(--fg);
+  padding:12px 12px;
+  outline:none;
+}
+input:focus, textarea:focus{border-color:rgba(244,242,238,.26)}
+
+/* ===============================
+   Agent card (single class: .agent)
+   =============================== */
+.agent{
+  position:relative;
+  overflow:hidden;
+  padding:22px;
+  border-radius:22px;
+  border:1px solid var(--line);
+  background:var(--panel-035);
+  backdrop-filter:blur(10px);
+}
+.agent::after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(520px 320px at 30% 25%, rgba(0,0,0,.18), rgba(0,0,0,.72));
+}
+.agent > *{position:relative;z-index:1}
+
+.agent h3{
+  margin:0;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.28em;
+  opacity:.85;
+  font-weight:520;
+}
+.agent dl{
+  margin:12px 0 0;
+  display:grid;
+  grid-template-columns:92px 1fr;
+  column-gap:12px;
+  row-gap:10px;
+}
+.agent dt{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  opacity:.70;
+}
+.agent dd{
+  margin:0;
+  font-size:15px;
+  line-height:1.55;
+  opacity:.92;
+}
+.agent dd strong{font-weight:520}
+.agent a:hover{text-decoration:underline;opacity:1}
+.agent .btn{margin-top:18px}
+
+/* ===============================
+   Responsive
+   =============================== */
+@media (max-width:980px){
+  .nav{display:none}
+  .menuBtn{display:inline-grid;place-items:center}
+  .heroGrid{grid-template-columns:1fr}
+  .footerGrid{grid-template-columns:1fr}
+  body.oeuvres .expoGallery{grid-template-columns:repeat(2,1fr)}
+  body.oeuvres .expoArt img{height:220px}
+  .contactGrid{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  body.oeuvres .expoGallery{grid-template-columns:1fr}
+  body.oeuvres .expoArt img{height:260px}
+}
